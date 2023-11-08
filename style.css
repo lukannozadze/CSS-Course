@@ -1,0 +1,23 @@
+
+/* specificity value 1+1=2 */
+main > section{
+    background-color:green
+}
+
+/* specificity value 1+10=11 */
+main > .american-bull-section{
+    background-color: yellow;
+}
+
+
+
+/* specificity value 1+100=101 */
+main > #akita-section{
+    background-color: red;
+}
+
+/* specificity value 100 */
+#akita-section{
+background-color: aqua;
+}
+/* conclusion: selector with specificity of 101 overrides selector with specificity of 100; despite of the last mentioned is later in the code */
