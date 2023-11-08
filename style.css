@@ -49,3 +49,14 @@ header > img{
     height: 70px;
 }
 /* conclusion: at first glance last option with specificity of 110 should override every other, but !important rule(second option) overrides all(except inline styling)  */
+
+
+/* specificity 100 with rule !important will override second option */
+#main-container{
+    background-color: black !important;
+}
+/* specificity value 1 + rule !important */
+main{
+    background-color: bisque !important;
+}
+/* conclusion: only way to override rule !important is  selector with !important rule but with more specificity also
