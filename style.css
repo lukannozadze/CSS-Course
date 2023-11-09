@@ -1,62 +1,69 @@
+* {
+  margin: 0;
+  padding: 0;
 
-
+  box-sizing: border-box;
+}
 /* specificity value 1+1=2 */
-main > section{
-    background-color:green
+main > section {
+  background-color: green;
 }
 
 /* specificity value 1+10=11 */
-main > .american-bull-section{
-    background-color: yellow;
+main > .american-bull-section {
+  background-color: yellow;
 }
 
-
-
 /* specificity value 1+100=101 */
-main > #akita-section{
-    background-color: red;
+main > #akita-section {
+  background-color: red;
 }
 
 /* specificity value 100 */
-#akita-section{
-background-color: aqua;
+#akita-section {
+  background-color: aqua;
 }
 /* conclusion: selector with specificity of 101 overrides selector with specificity of 100; despite of the last mentioned is later in the code */
 
-
-
 /* specificity value 1+2=2 */
-header > img{
-    width: 40px;
-    height: 40px;
+header > img {
+  width: 40px;
+  height: 40px;
 }
 
 /* specificity value 10 */
-.header-icon{
-    width: 100px !important; 
-    height: 100px !important;
+.header-icon {
+  width: 100px !important;
+  height: 100px !important;
 }
 
 /* specificity value 100+1=101 */
-#header-id > img{
-    width: 45px;
-    height: 50px;
+#header-id > img {
+  width: 45px;
+  height: 50px;
 }
 
 /* specificity value 100+10=110 */
-#header-id > .header-icon{
-    width: 60px;
-    height: 70px;
+#header-id > .header-icon {
+  width: 60px;
+  height: 70px;
 }
 /* conclusion: at first glance last option with specificity of 110 should override every other, but !important rule(second option) overrides all(except inline styling)  */
 
-
 /* specificity 100 with rule !important will override second option */
-#main-container{
-    background-color: black !important;
+#main-container {
+  background-color: black !important;
 }
 /* specificity value 1 + rule !important */
-main{
-    background-color: bisque !important;
+main {
+  background-color: bisque !important;
 }
-/* conclusion: only way to override rule !important is  selector with !important rule but with more specificity also
+/* conclusion: only way to override rule !important is  selector with !important rule but with more specificity also*/
+
+main > section {
+  width: 500px;
+  height: 450px;
+  padding: 20px;
+  border: 10px solid greenyellow;
+  margin: 25px;
+}
