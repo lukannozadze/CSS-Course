@@ -70,3 +70,16 @@ main > section {
   border: 10px solid greenyellow;
   margin: 25px;
 }
+#header-id > nav > ul {
+  list-style: none;
+  display: flex;
+  gap: 12px;
+}
+header {
+  padding-left: 30px;
+  padding-right: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: cadetblue;
+}
