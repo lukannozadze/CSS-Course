@@ -97,3 +97,19 @@ footer {
   display: flex;
   justify-content: center;
 }
+
+.grid-container{
+    background-color: black;
+        max-width: auto;
+        height: auto;
+        padding: 20px;
+        border: 1px solid black;
+        margin: 0;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+}
+.grid-item{
+    background-color: red;
+    padding: 25px;
+    border: 1px solid black;
+}
