@@ -106,16 +106,18 @@ footer {
     width: 200px;
     height: 100px;
     background-color: tomato;
+    animation: left-to-right 1s forwards infinite alternate;
 }
 
 .parent:hover .child{
     
-  animation: left-to-right 1s ease forwards 3;
+  animation-play-state: paused;
 }
 
 @keyframes left-to-right{
     0% {
         transform: translateX(0);
+        background-color: tomato;
     }
      33% {
         transform: translateY(100%);
@@ -125,5 +127,6 @@ footer {
     }
     100% {
         transform: translateX(100%);
+        background-color: green;
     }
 }
