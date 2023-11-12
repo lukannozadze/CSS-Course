@@ -4,31 +4,161 @@
 
   box-sizing: border-box;
 }
-body{
-  background-color: grey;
-  padding: 30px;
+/* specificity value 1+1=2 */
+main > section {
+  background-color: green;
 }
-.grid-item{
-    background-color: aqua;
-    padding: 25px;
-    text-align: center;
-    border: 1px solid white;
+
+/* specificity value 1+10=11 */
+main > .american-bull-section {
+  background-color: yellow;
 }
-.grid-container{
-    display: grid;
-    grid-template-columns: 200px 250px;
-    grid-auto-rows: minmax(100px,auto);
-    grid-gap: 20px;
-    justify-content: center;
-    align-content: center;
-    height: 100vh;
+
+/* specificity value 1+100=101 */
+main > #akita-section {
+  background-color: red;
 }
-.grid-item-1{
- grid-column: 1/-1;
+
+/* specificity value 100 */
+#akita-section {
+  background-color: aqua;
 }
-.grid-item-2{
-  grid-row: span 2;
+/* conclusion: selector with specificity of 101 overrides selector with specificity of 100; despite of the last mentioned is later in the code */
+
+/* specificity value 1+2=2 */
+header > img {
+  width: 40px;
+  height: 40px;
 }
-.grid-item-3{
-  grid-row: 2/4;
+
+/* specificity value 10 */
+.header-icon {
+  width: 100px !important;
+  height: 100px !important;
+}
+
+/* specificity value 100+1=101 */
+#header-id > img {
+  width: 45px;
+  height: 50px;
+}
+
+/* specificity value 100+10=110 */
+#header-id > .header-icon {
+  width: 60px;
+  height: 70px;
+}
+/* conclusion: at first glance last option with specificity of 110 should override every other, but !important rule(second option) overrides all(except inline styling)  */
+
+/* specificity 100 with rule !important will override second option */
+#main-container {
+  background-color: black !important;
+}
+/* specificity value 1 + rule !important */
+main {
+  background-color: bisque !important;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+/* conclusion: only way to override rule !important is  selector with !important rule but with more specificity also*/
+
+main > section {
+  max-width: 500px;
+  height: 450px;
+  padding: 20px;
+  border: 10px solid greenyellow;
+  margin: 25px;
+}
+#header-id > nav > ul {
+  list-style: none;
+  display: flex;
+  gap: 12px;
+}
+header {
+  padding-left: 30px;
+  padding-right: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: cadetblue;
+}
+section > img {
+  max-width: 400px;
+}
+section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+footer {
+  padding: 20px;
+  background-color: cadetblue;
+  display: flex;
+  justify-content: center;
+}
+.parent{
+    width: 400px;
+    height: 200px;
+    background-color: blue;
+}
+.child{
+    width: 200px;
+    height: 100px;
+    background-color: tomato;
+    animation: left-to-right 1s forwards infinite ease alternate;
+}
+
+.parent:hover .child{
+    
+  animation-play-state: paused;
+}
+
+button{
+    width: 50px;
+    height: 30px;
+    background-color: lightgreen;
+}
+button:hover{
+    animation: grow 0.5s forwards ease ;
+}
+
+
+@keyframes left-to-right{
+    0% {
+        transform: translateX(0);
+        background-color: tomato;
+    }
+     33% {
+        transform: translateY(100%);
+    }
+    66% {
+        transform: translateX(100%) translateY(100%);
+    }
+    100% {
+        transform: translateX(100%);
+        background-color: green;
+    }
+}
+@keyframes grow{
+    0%{
+        width: 50px;
+        height: 40px;
+        background-color: green;
+    }
+    33%{
+        width: 60px;
+        height: 45px;
+        background-color: darkgreen;
+    }
+    66%{
+        width: 70px;
+        height: 55px;
+        background-color: lightblue;
+    }
+    100%{
+        width: 80px;
+        height: 65px;
+        background-color: blue;
+    }
 }
