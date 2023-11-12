@@ -106,19 +106,18 @@ footer {
     width: 200px;
     height: 100px;
     background-color: tomato;
-    transition: transform 1s ease-in 1s;
 }
 
 .parent:hover .child{
     
-    animation: left-to-right 1s ease-in forwards;
+  animation: left-to-right 1s ease forwards;
 }
 
-@keyframes left-to-right {
+@keyframes left-to-right{
     0% {
         transform: translateX(0);
     }
-    33% {
+     33% {
         transform: translateY(100%);
     }
     66% {
