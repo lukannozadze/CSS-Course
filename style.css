@@ -110,7 +110,7 @@ footer {
 
 .parent:hover .child{
     
-  animation: left-to-right 1s ease forwards;
+  animation: left-to-right 1s ease forwards 3;
 }
 
 @keyframes left-to-right{
