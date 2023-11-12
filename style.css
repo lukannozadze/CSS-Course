@@ -104,6 +104,11 @@ footer {
 }
 .child{
     width: 200px;
-    height: 150px;
+    height: 100px;
     background-color: tomato;
+    transition: transform 2s cubic-bezier(0.25, 0.1, 1, 4.02) 1s;
+}
+
+.parent:hover .child{
+    transform: translateX(100%);
 }
