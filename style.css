@@ -179,3 +179,14 @@ button:hover{
     background-color: red;
   }
 }
+
+@media (orientation:landscape){
+  footer{
+    background-color: brown;
+  }
+}
+@media (orientation:portrait){
+  header{
+    background-color: aqua;
+  }
+}
