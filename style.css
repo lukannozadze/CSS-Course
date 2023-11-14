@@ -4,18 +4,21 @@
 
   box-sizing: border-box;
 }
+html{
+  overflow-x: hidden;
+}
 /* specificity value 1+1=2 */
-main > section {
+main > div > section {
   background-color: green;
 }
 
 /* specificity value 1+10=11 */
-main > .american-bull-section {
+main > div > .american-bull-section {
   background-color: yellow;
 }
 
 /* specificity value 1+100=101 */
-main > #akita-section {
+main > div > #akita-section {
   background-color: red;
 }
 
@@ -52,23 +55,17 @@ header > img {
 
 /* specificity 100 with rule !important will override second option */
 #main-container {
-  background-color: black !important;
+  background-color: black ;
+  min-height: 100vh;
 }
 /* specificity value 1 + rule !important */
 main {
-  background-color: bisque !important;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  background-color: bisque;
+
 }
 /* conclusion: only way to override rule !important is  selector with !important rule but with more specificity also*/
-
-main > section {
-  max-width: 500px;
-  height: 450px;
-  padding: 20px;
+main > div > section {
   border: 10px solid greenyellow;
-  margin: 25px;
 }
 #header-id > nav > ul {
   list-style: none;
@@ -84,12 +81,13 @@ header {
   background-color: cadetblue;
 }
 section > img {
-  max-width: 400px;
+  max-width: 100%;
 }
 section {
   display: flex;
   flex-direction: column;
   align-items: center;
+  font-size: clamp(1rem, 10vw, 2rem); 
 }
 footer {
   padding: 20px;
@@ -98,21 +96,19 @@ footer {
   justify-content: center;
 }
 .parent{
-    width: 400px;
-    height: 200px;
     background-color: blue;
 }
-.child{
-    width: 200px;
+/* .child{
+    width: 50%;
     height: 100px;
     background-color: tomato;
     animation: left-to-right 1s forwards infinite ease alternate;
-}
+} */
 
-.parent:hover .child{
+/* .parent:hover .child{
     
   animation-play-state: paused;
-}
+} */
 
 button{
     width: 50px;
@@ -122,6 +118,16 @@ button{
 button:hover{
     animation: grow 0.5s forwards ease ;
 }
+
+ .grid-container{
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(400px,1fr));
+  grid-auto-rows: 500px;
+  align-content: end;
+  
+} 
 
 
 @keyframes left-to-right{
@@ -161,4 +167,28 @@ button:hover{
         height: 65px;
         background-color: blue;
     }
+
+  
+}
+
+
+
+@media only screen and (width<900px) and (width>700px){
+  #main-container{
+    background-color: tomato;
+  }
+  header{
+    background-color: red;
+  }
+}
+
+@media (orientation:landscape){
+  footer{
+    background-color: brown;
+  }
+}
+@media (orientation:portrait){
+  header{
+    background-color: aqua;
+  }
 }
