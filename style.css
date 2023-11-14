@@ -8,17 +8,17 @@ html{
   overflow-x: hidden;
 }
 /* specificity value 1+1=2 */
-main > section {
+main > div > section {
   background-color: green;
 }
 
 /* specificity value 1+10=11 */
-main > .american-bull-section {
+main > div > .american-bull-section {
   background-color: yellow;
 }
 
 /* specificity value 1+100=101 */
-main > #akita-section {
+main > div > #akita-section {
   background-color: red;
 }
 
@@ -56,23 +56,16 @@ header > img {
 /* specificity 100 with rule !important will override second option */
 #main-container {
   background-color: black !important;
+  min-height: 100vh;
 }
 /* specificity value 1 + rule !important */
 main {
   background-color: bisque !important;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  
+
 }
 /* conclusion: only way to override rule !important is  selector with !important rule but with more specificity also*/
-
-main > section {
-  max-width: 500px;
-  padding: 20px;
+main > div > section {
   border: 10px solid greenyellow;
-  margin: 25px;
 }
 #header-id > nav > ul {
   list-style: none;
@@ -94,6 +87,7 @@ section {
   display: flex;
   flex-direction: column;
   align-items: center;
+  font-size: clamp(1rem, 10vw, 2rem); 
 }
 footer {
   padding: 20px;
@@ -102,22 +96,19 @@ footer {
   justify-content: center;
 }
 .parent{
-   min-width: 160px;
-    height: 200px;
     background-color: blue;
-    flex-shrink: 2;
 }
-.child{
+/* .child{
     width: 50%;
     height: 100px;
     background-color: tomato;
     animation: left-to-right 1s forwards infinite ease alternate;
-}
+} */
 
-.parent:hover .child{
+/* .parent:hover .child{
     
   animation-play-state: paused;
-}
+} */
 
 button{
     width: 50px;
@@ -127,6 +118,17 @@ button{
 button:hover{
     animation: grow 0.5s forwards ease ;
 }
+
+ .grid-container{
+  width: 100%;
+  
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(400px,1fr));
+  grid-auto-rows: 500px;
+  
+  place-content: center;
+
+} 
 
 
 @keyframes left-to-right{
